@@ -1,52 +1,7 @@
-Hugging Face's logo
-Hugging Face
-Models
-Datasets
-Spaces
-Community
-Docs
-Enterprise
-Pricing
-
-
-
-Spaces:
-
-smanicka112
-/
-ai-business-coach
-
-
-like
-0
-
-Logs
-App
-Files
-Community
-Settings
-ai-business-coach
-/
-app.py
-
-smanicka112's picture
-smanicka112
-Update app.py
-d3b1132
-verified
-36 minutes ago
-raw
-
-Copy download link
-history
-blame
-edit
-delete
-
-7.09 kB
 from openai import OpenAI
 import gradio as gr
 import pandas as pd
+import tiktoken
 
 client = None
 
@@ -161,8 +116,10 @@ The user is starting a business: "{business_idea}"
 You are evaluating this pillar: "{PILLARS[index]}"
 Here are all previous answers they’ve given:
 {prev_answers}
-Now, ask ALL possible smart, specific questions about this pillar that haven’t already been covered.
-Avoid repetition. Build on what’s already known.
+Now, ask 3 to 4 smart, specific, and non-redundant questions about this pillar.
+Focus only on what hasn’t already been asked or answered. Build on what’s already known.
+Each question should be high-leverage — something that reveals practical readiness, mindset clarity, or gaps to fix.
+Format the output as a numbered list, with no extra explanation.
 """
     response = client.chat.completions.create(
         model="gpt-4",
@@ -241,4 +198,3 @@ with gr.Blocks() as app:
     csv_btn.click(export_csv, outputs=csv_output)
 
 app.launch(share=True, debug=True)
-
