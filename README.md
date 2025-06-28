@@ -1,1 +1,7 @@
-This project uses a 19-pillar framework to assess startup readiness, helping aspiring entrepreneurs evaluate before launching.
+title: AI Business Coach
+emoji: 🧠
+colorFrom: indigo
+colorTo: green
+sdk: gradio
+app_file: app.py
+pinned: false
